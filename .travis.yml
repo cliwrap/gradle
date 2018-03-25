@@ -1,0 +1,18 @@
+services:
+- docker
+script:
+- docker build -t wtanaka/alpine-37-uid-openjdk8-gradle .
+# Make sure the container works normally
+- docker run --rm wtanaka/alpine-37-uid-openjdk8-gradle java -version 2>&1 | grep 'openjdk version "1.8'
+# Make sure the container works normally
+- docker run --rm wtanaka/alpine-37-uid-openjdk8-gradle /opt/gradle/bin/gradle --version 2>&1 | grep 'Gradle 4.6'
+after_success:
+- >
+  curl -H "Content-Type: application/json"
+  --data '{"source_type": "Branch", "source_name": "master"}'
+  -X POST
+  https://registry.hub.docker.com/u/wtanaka/alpine-37-uid-openjdk8-gradle/trigger/7d01cfad-f9c2-40e0-a065-d759f8b2f316/
+notifications:
+  email:
+    recipients:
+      secure: b32rip4nx8iGUVbuAk632TldE/zNp2XWLvwkLcK1CigpZfP6Md6eMEyyKJn5tRR8mPm/XYCjtMRwrr+uJv0H1iSo++YAaWl467LlkiRspTPav7o7SXBCIqkK17kjWPjzPzA7QdlUuurRJdnXuPPxp7ZuYLpf94xwuOE0xcDLRMF5+3RNlYMKj/NYxE2MUklJNqbF4wh1P/i4G0cLYqP37JIMQTOuow4xSsTGDxnjIkdfZQIFOUnxCx75hCJOVvJXLxVxipWbFzMpWEhJ6RK2s/4OzET7fCEgPJmlKmA9nvaVadNTZhlvdob+40msQ3FDlpviogfvqXIhGmaN4PFKv7QVCCWUkOo/oReb6RjNQQcceeU2R15TFrGIWpFa53HRGrX6KI2zcgx1tTYaZROrMnj0tYfYMdBO/47G2WtmwOcKsEfGszS/5HgSSDoNgBtwECPHxTQrA4acWjcljjrVqpCHvWUZ/Z/PcemKLcZfMjgmtmM4wd2kZJ9rWnZVoZHEVkdZXy2PsooI0U8bfkAS0yG8goPD5XqL5QIh8n0SN4UippuuWuUNUYnFqcK3uwFA2Ix7v3EPm7e9T/HSBWTvMnOoeZ+KIJVYoSyV/aSVGLsk1d9dXKb4BNrw0J0edraRMqxT3Fq1c6bAUEBBivSilnyaMpAP+UqovkTfWFJi1Qc=
