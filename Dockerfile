@@ -1,6 +1,6 @@
 FROM wtanaka/alpine-37-uid-openjdk8
 MAINTAINER http://wtanaka.com/dockerfiles
-ARG GRADLE_VERSION=0.8
+ARG GRADLE_VERSION=0.9.1
 RUN mkdir -p /opt \
   && cd /tmp \
   && apk add --no-cache wget \
