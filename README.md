@@ -15,11 +15,11 @@ Examples
 
 Run latest gradle in current directory:
 
-```docker run --rm -e "HOSTUID=`id -u`" -v "`pwd`:/work" -v "$HOME:/home/hostuser" wtanaka/alpine-37-uid-openjdk8-gradle gradle build```
+```docker run --rm -e "HOSTUID=`id -u`" -v "`pwd`:/work" -v "$HOME:/home/hostuser" wtanaka/alpine-37-uid-openjdk8-gradle /opt/gradle/bin/gradle build```
 
 Use an older version like Gradle 2.14:
 
-```docker run --rm -e "HOSTUID=`id -u`" -v "`pwd`:/work" -v "$HOME:/home/hostuser" wtanaka/alpine-37-uid-openjdk8-gradle:2.14 gradle build```
+```docker run --rm -e "HOSTUID=`id -u`" -v "`pwd`:/work" -v "$HOME:/home/hostuser" wtanaka/alpine-37-uid-openjdk8-gradle:2.14 /opt/gradle/bin/gradle build```
 
 Create a specific gradle wrapper version in the current directory:
 
