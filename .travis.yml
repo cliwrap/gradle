@@ -1,11 +1,11 @@
 services:
 - docker
 script:
-- docker build -t wtanaka/alpine-37-uid-openjdk8-gradle .
+- docker build -t cliwrap/gradle .
 # Make sure the container works normally
-- docker run --rm wtanaka/alpine-37-uid-openjdk8-gradle java -version 2>&1 | grep 'openjdk version "1.8'
+- docker run --rm cliwrap/gradle java -version 2>&1 | grep 'openjdk version "1.8'
 # Make sure the container works normally
-- docker run --rm wtanaka/alpine-37-uid-openjdk8-gradle gradle --version 2>&1 | grep '^Gradle'
+- docker run --rm cliwrap/gradle gradle --version 2>&1 | grep '^Gradle'
 after_success:
 - >
   curl -H "Content-Type: application/json"
