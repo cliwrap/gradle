@@ -31,7 +31,7 @@ docker run \
   --cidfile="$CIDFILE" \
   -e "HOSTUID=`id -u`" \
   -e "HOSTGID=`id -g`" \
-  wtanaka/alpine-37-uid-openjdk8-gradle \
+  cliwrap/gradle \
   sh -c "mkdir $WRAPPERDIR; cd $WRAPPERDIR; /opt/gradle/bin/gradle wrapper $@"
 docker cp $(cat $CIDFILE):/home/hostuser/$WRAPPERDIR .
 mv $WRAPPERDIR/* .
