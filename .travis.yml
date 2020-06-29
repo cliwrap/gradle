@@ -11,7 +11,7 @@ after_success:
   curl -H "Content-Type: application/json"
   --data '{"source_type": "Branch", "source_name": "master"}'
   -X POST
-  https://registry.hub.docker.com/u/wtanaka/alpine-37-uid-openjdk8-gradle/trigger/7d01cfad-f9c2-40e0-a065-d759f8b2f316/
+  https://hub.docker.com/api/build/v1/source/d2708ac7-8ce6-40a8-826a-9489fc793a96/trigger/c9eb795e-5e65-4349-95da-4f0d588f2dea/call/
 notifications:
   email:
     recipients:
