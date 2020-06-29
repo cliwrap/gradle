@@ -26,5 +26,5 @@ exec docker run \
   -e "HOSTGID=`id -g`" \
   -v "`pwd`:/work" \
   -v "$HOME:/home/hostuser" \
-  wtanaka/alpine-37-uid-openjdk8-gradle \
+  cliwrap/gradle \
   gradle "$@"
