@@ -1,6 +1,6 @@
 FROM cliwrap/openjdk8
 MAINTAINER http://wtanaka.com/dockerfiles
-ARG GRADLE_VERSION=4.6
+ARG GRADLE_VERSION=5.0
 ENV PATH="${PATH}:/opt/gradle/bin"
 RUN mkdir -p /opt \
   && cd /tmp \
