@@ -20,6 +20,8 @@
 # Use this script to launch a command line program inside the
 # container, e.g.
 
+# Use full path to /opt/gradle/bin/gradle in case there is a
+# $HOME/bin/gradle
 exec docker run \
   -i -t --rm \
   -e "HOSTUID=`id -u`" \
@@ -27,4 +29,4 @@ exec docker run \
   -v "`pwd`:/work" \
   -v "$HOME:/home/hostuser" \
   cliwrap/gradle \
-  gradle "$@"
+  /opt/gradle/bin/gradle "$@"
